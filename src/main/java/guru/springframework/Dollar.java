@@ -1,5 +1,7 @@
 package guru.springframework;
 
+import java.util.Objects;
+
 /**
  * Created by jt on 2018-10-04.
  */
@@ -11,7 +13,13 @@ public class Dollar {
         this.amount = amount;
     }
 
-    void times( int multiplier) {
-        amount *= multiplier;
+    Dollar times( int multiplier) {
+        return new Dollar (amount * multiplier);
+    }
+
+    @Override
+    public boolean equals (Object o) {
+        Dollar dollar = (Dollar) o;
+        return amount == dollar.amount;
     }
 }
